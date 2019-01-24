@@ -468,15 +468,17 @@ pre[class*="language-"] {
 
 <body>
 
-<h1 id="toc_0">发改委APP第三方库集成说明文档</h1>
+<h1 id="toc_0"><center> 发改委APP第三方库集成说明文档 </center></h1>
 
-<p><strong>native-echarts(Echarts图表集成)</strong>  </p>
+<p><br></p>
 
-<h4 id="toc_1">1.集成方法</h4>
+<h2 id="toc_1">native-echarts(Echarts图表集成)</h2>
+
+<h4 id="toc_2">1.集成方法</h4>
 
 <p><strong>npm install native-echarts –save</strong>  </p>
 
-<h4 id="toc_2">2.注意</h4>
+<h4 id="toc_3">2.注意</h4>
 
 <p>　　(1)在集成图表功能后,可能会遇到安卓或者iOS打包后图表显示空白的情况，具体解决方法是修改<em><mark>node_modules/native-echarts/src/components/Echarts/index.js</mark></em>中的WebView组件：</p>
 
@@ -499,14 +501,16 @@ pre[class*="language-"] {
         }
     }    </code></pre></div>
 
-<p><strong>react-native-orientation(横竖屏切换)</strong>  </p>
+<p><br></p>
 
-<h4 id="toc_3">1.集成方法</h4>
+<h2 id="toc_4">react-native-orientation(横竖屏切换)</h2>
+
+<h4 id="toc_5">1.集成方法</h4>
 
 <p><strong>npm install react-native-orientation –save</strong><br>
 <strong>react-native link react-native-orientation</strong></p>
 
-<h4 id="toc_4">2.注意</h4>
+<h4 id="toc_6">2.注意</h4>
 
 <p>iOS需要在工程中开启权限  </p>
 
@@ -524,16 +528,16 @@ pre[class*="language-"] {
                 return (UIInterfaceOrientationMaskPortrait);
         }
     }
-    - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-        return YES;
-    }
-    - (BOOL)shouldAutorotate{
-        return YES;
-    }</code></pre></div>
+ - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    return YES;
+ }
+ - (BOOL)shouldAutorotate{
+    return YES;
+ }</code></pre></div>
 
 <p>在AppDelegate.h中添加属性allowRotate</p>
 
-<p><code>@property (nonatomic,assign)NSInteger allowRotate;</code></p>
+<div><pre><code class="language-Objective-C">@property (nonatomic,assign)NSInteger allowRotate;</code></pre></div>
 
 <p>　　添加RN与原生的交互类PushCustom，在RCT<em>EXPORT</em>METHOD方法中更改allowRotate的属性，从而锁定手机横竖屏，这样就不会出现用户将手机横竖切换时的问题了。</p>
 
